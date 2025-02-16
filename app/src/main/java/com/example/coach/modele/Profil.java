@@ -1,10 +1,14 @@
 package com.example.coach.modele;
 
+import com.example.coach.outils.Serializer;
+
+import java.io.Serializable;
+
 /**
  * Classe qui permet de créer un Profil utilisateur dans le but de calculer son img
  * (Indide Masse Grasse) en valorisant les paramètres necessaires au calcul.
  */
-public class Profil {
+public class Profil implements Serializable {
 
     // Constantes
     private static final Integer minFemme = 15; // maigre si en dessous

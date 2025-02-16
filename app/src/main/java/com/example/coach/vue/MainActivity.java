@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtTaille;
     private EditText txtAge;
     private RadioButton rdHomme;
+    private RadioButton rdFemme;
     private TextView lblIMG;
     private ImageView imgSmiley;
     private Button btnCalc;
@@ -49,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
         txtTaille = (EditText)findViewById(R.id.txtTaille);
         txtAge = (EditText)findViewById(R.id.txtAge);
         rdHomme = (RadioButton)findViewById(R.id.rdHomme);
+        rdFemme = (RadioButton)findViewById(R.id.rdFemme);
         lblIMG= (TextView)findViewById(R.id.lblIMG);
         imgSmiley = (ImageView)findViewById(R.id.imgSmiley);
         btnCalc = (Button)findViewById(R.id.btnCalc);
-        controle = Controle.getInstance();
+        controle = Controle.getInstance(this);
         ecouteCalcul();
+        recupProfil();
     }
 
     /**
@@ -94,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      * @param sexe
      */
     public void afficheResult(Integer poids, Integer taille, Integer age, Integer sexe) {
-        controle.creerProfil(poids, taille, age, sexe);
+        controle.creerProfil(poids, taille, age, sexe, this);
         String message = controle.getMessage();
         float img = controle.getImg();
 
@@ -115,6 +118,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
         lblIMG.setText(imgToSting + " :IMG " + message);
+    }
+
+    public void recupProfil(){
+        if(controle.getPoids() != null){
+            txtPoids.setText(controle.getPoids().toString());
+        }
+
+        if(controle.getTaille() != null){
+            txtTaille.setText(controle.getTaille().toString());
+        }
+
+        if(controle.getAge() != null){
+            txtAge.setText(controle.getAge().toString());
+        }
+
+        if(controle.getSexe() == null && controle.getSexe() == 0){
+            rdFemme.setChecked(true);
+        }
+
+        if(controle.getSexe() == null  && controle.getSexe() == 1){
+            rdHomme.setChecked(true);
+        }
+
+        btnCalc.performClick();
     }
 
 }
