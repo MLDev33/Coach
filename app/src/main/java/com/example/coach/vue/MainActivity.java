@@ -121,26 +121,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void recupProfil(){
-        if(controle.getPoids() != null){
-            txtPoids.setText(controle.getPoids().toString());
-        }
-
         if(controle.getTaille() != null){
+            txtPoids.setText(controle.getPoids().toString());
             txtTaille.setText(controle.getTaille().toString());
-        }
-
-        if(controle.getAge() != null){
             txtAge.setText(controle.getAge().toString());
+            if(controle.getSexe() == 0){
+                rdFemme.setChecked(true);
+            }else{
+                rdHomme.setChecked(true);
+            }
         }
-
-        if(controle.getSexe() == null && controle.getSexe() == 0){
-            rdFemme.setChecked(true);
-        }
-
-        if(controle.getSexe() == null  && controle.getSexe() == 1){
-            rdHomme.setChecked(true);
-        }
-
         btnCalc.performClick();
     }
 

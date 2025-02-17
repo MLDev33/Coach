@@ -1,8 +1,11 @@
 package com.example.coach.modele;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.coach.outils.Serializer;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Classe qui permet de créer un Profil utilisateur dans le but de calculer son img
@@ -22,6 +25,7 @@ public class Profil implements Serializable {
     private Integer sexe;
     private float img = 0;
     private String message = "";
+    private Date dateMesure;
 
     /**
      * Constructeur : valorise directement les proriétés poids, taille, age, sexe
@@ -30,12 +34,14 @@ public class Profil implements Serializable {
      * @param age
      * @param sexe 1 pour homme, 0 pour femme
      */
-    public Profil(Integer poids, Integer taille, Integer age, Integer sexe) {
+    public Profil(Integer poids, Integer taille, Integer age, Integer sexe, Date dateMesure) {
         this.poids = poids;
         this.taille = taille;
         this.age = age;
         this.sexe = sexe;
+        this.dateMesure = dateMesure;
     }
+
 
     public Integer getPoids() {
         return poids;
@@ -51,6 +57,10 @@ public class Profil implements Serializable {
 
     public Integer getSexe() {
         return sexe;
+    }
+
+    public Date getDateMesure() {
+        return dateMesure;
     }
 
     /**
@@ -90,6 +100,5 @@ public class Profil implements Serializable {
         }
         return message;
     }
-
 
 }
