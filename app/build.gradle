@@ -8,18 +8,24 @@ android {
 
     defaultConfig {
         applicationId "com.example.coach"
-        minSdk 16
+        minSdk 18
         targetSdk 33
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "IP_ADRESS", "\"${IP_ADRESS}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures{
+        buildConfig true
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "IP_ADRESSE", "\"192.168.1.116\""
         }
     }
     compileOptions {

@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
      * - création du contrôleur
      * - demande d'écoute (évenements sur objets graphiques)
      */
-    private void init(){
+    public void init(){
         txtPoids = (EditText)findViewById(R.id.txtPoids);
         txtTaille = (EditText)findViewById(R.id.txtTaille);
         txtAge = (EditText)findViewById(R.id.txtAge);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalc = (Button)findViewById(R.id.btnCalc);
         controle = Controle.getInstance(this);
         ecouteCalcul();
-        recupProfil();
+        //recupProfil();
     }
 
     /**
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
      * @param sexe
      */
     public void afficheResult(Integer poids, Integer taille, Integer age, Integer sexe) {
-        controle.creerProfil(poids, taille, age, sexe, this);
+        controle.creerProfil(poids, taille, age, sexe);
         String message = controle.getMessage();
         float img = controle.getImg();
 
