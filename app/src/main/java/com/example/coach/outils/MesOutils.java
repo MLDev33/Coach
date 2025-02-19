@@ -44,4 +44,13 @@ public abstract class MesOutils {
         return date.format(uneDate);
     }
 
+    /**
+     * Convertit en chaîne un float, après avoir arrondi à 2 décimales
+     * @param unevaleur
+     * @return la même valeur avec 2 décimales et au format chaîne
+     */
+    public static String format2Decimal (Float unevaleur){
+        return String.format("%.01f", unevaleur);
+    }
+
 }

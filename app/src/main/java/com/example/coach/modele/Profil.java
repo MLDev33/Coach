@@ -16,7 +16,7 @@ import java.util.Date;
  * Classe qui permet de créer un Profil utilisateur dans le but de calculer son img
  * (Indide Masse Grasse) en valorisant les paramètres necessaires au calcul.
  */
-public class Profil implements Serializable {
+public class Profil implements Serializable, Comparable {
 
     // Constantes
     private static final Integer minFemme = 15; // maigre si en dessous
@@ -124,4 +124,13 @@ public class Profil implements Serializable {
        return jsonProfil;
     }
 
+    /**
+     * Comparaison des profils sur dateMesure
+     * @param o
+     * @return le résultat de la comparaison
+     */
+    @Override
+    public int compareTo(Object o) {
+        return dateMesure.compareTo(((Profil)o).getDateMesure());
+    }
 }

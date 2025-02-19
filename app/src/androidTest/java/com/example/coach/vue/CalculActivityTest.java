@@ -14,10 +14,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class MainActivityTest {
+public class CalculActivityTest {
 
     @Rule
-    public ActivityScenarioRule rule = new ActivityScenarioRule(MainActivity.class);
+    public ActivityScenarioRule rule = new ActivityScenarioRule(CalculActivity.class);
 
     @Test
     public void scenario(){
